@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,500&display=swap');
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(238, 237, 235);
+  height: 100vh;
+}
+
+.bs1 {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+h1{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+p{
+  margin: 5px;
+  text-align: left;
+  padding: 0;
+}
+
+.header{
+  padding: 10px;
+}
+
+.content{
+  min-height: 90vh;
+
+}
+
+.bikeimg{
+  height: 220px;
+  width: 100%;
+  border-radius: 5px;
+  transform: translateY(-60px);
+}
+
+.bike{
+  background-color: rgb(225, 240, 218);
+  border-radius: 4px;
+  margin-top: 100px;
+  height: 190px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.bike:hover{
+  height: 290px;
+}
+
+.bike:hover > .bikeContent{
+  opacity: 1;
+  transform: translateY(-50px);
+}
+
+.bikeContent{
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.form{
+  background-color: #dee0e6;
+  
+}
+
+.fbtn{
+  padding: 5px 25px;
+}
+
+.link{
+  text-decoration: none;
+  
+}
+
+.imggif{
+  margin-top: 80px !important;
+}
+
+.logForm{
+  margin-top: 50px !important;
+}
+
+@media (max-width:765px) {
+  .form{
+    margin: 100px !important ;
+  }
+  
+}
+
+.a{
+  text-decoration: none;
+}

@@ -1,14 +1,17 @@
 import React from 'react'
 import {Row, Col, Form, Button, Input} from "antd"
 import {Link} from "react-router-dom"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userRegister } from '../redux/action/userActions'
+import AOS from 'aos'
+import 'aos/dist/aos.css';
 
+AOS.init();
 
 function Register() {
 
   const dispatch = useDispatch()
-
+  const {loading} = useSelector(state =>state.alertsReducer)
   function onFinish(values){
     dispatch(userRegister(values))
     console.log(values)
@@ -17,10 +20,9 @@ function Register() {
   
   return (
     <div className='register'>
-        
          <Row gutter={16}>
         <Col lg={14} md={14} className='imggif mt-5 p-4'>
-          <img src='https://giffiles.alphacoders.com/174/17469.gif' />
+          <img data-aos="slide-left" data-aos-duration="800" src='https://giffiles.alphacoders.com/174/17469.gif' />
         </Col>
         <Col lg={8} md={8} className='textLeft mt-4'>
           <Form layout='vertical' className='form p-5 mb-3'onFinish={onFinish}>

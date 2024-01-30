@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getAllBikes } from '../redux/action/bikesAction'
 import { Button, Row, Col } from 'antd';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Spinner from '../Spinner';
 
 function Home() {
   const {bikes} = useSelector(state =>state.bikesReducer)
@@ -16,7 +18,7 @@ function Home() {
 
   return (
     <Default>
-
+          {loading == true && (<Spinner />)}
       <div className='home'>
       <Row justify="center" gutter={20} className='mt-5'>
         {bikes.map((bike,i)=>{
@@ -30,7 +32,11 @@ function Home() {
                                 <p><b>{bike.rentPerHour}</b> Rent Per Hour /-</p>
                             </div>
                             <div>
-                              <button className='bt1 mt-3'>Book Now</button>
+                              <button className='bt1 mt-3'>
+                                <Link to={`/booking/${bike._id}`}>
+                                  Book Now 
+                                </Link>
+                               </button>
                             </div>
                           </div>
                           

@@ -16,10 +16,10 @@ function App() {
           <Routes>
               <Route element={<Protect />}>
                 <Route path="/" element={ <Home /> } />
-                <Route path="booking" element={ <Booking/> } />
+                <Route path="/booking/:id" element={ <Booking/> } />
               </Route>
-              <Route path="login" element={<Login/>} />
-              <Route path="register" element={<Register/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/register" element={<Register/>} />
           </Routes>
       </BrowserRouter>
    </div>

@@ -13,7 +13,7 @@ const items = [
   {
     key: '2',
     label: (
-      <a className='a' href="https://www.aliyun.com">
+      <a className='a' href="/mybookings">
         Bookings
       </a>
     ),
@@ -21,7 +21,7 @@ const items = [
   {
     key: '3',
     label: (
-      <a className='a' href="https://www.luohanacademy.com">
+      <a className='a' href="#">
         Profile
       </a>
     ),
@@ -31,7 +31,7 @@ const items = [
     label: (
       <a className='a' onClick={() =>{
         localStorage.removeItem("user")
-        window.location.href="/login"
+        window.location.href="/"
       }}>
         Logout
       </a>

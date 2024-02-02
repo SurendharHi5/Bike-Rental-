@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../redux/action/userActions'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Spinner from '../Spinner';
+
 
 AOS.init();
 
@@ -18,7 +20,7 @@ function Login() {
 
   return (
     <div className='login'>
-        
+         {loading && (<Spinner />)}
       <Row gutter={16}>
         <Col lg={14} md={14} className='imggif mt-5'>
           <img data-aos="slide-left" data-aos-duration="800" src='https://giffiles.alphacoders.com/174/17469.gif' />

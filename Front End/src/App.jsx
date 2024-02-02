@@ -4,8 +4,10 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Booking from "./pages/Booking"
-import { useEffect } from "react";
+import StartingPage from "./pages/StartingPage";
 import Protect from "./protectPages/Protect";
+import MyBookings from "./pages/MyBookings";
+import AddBike from "./adminPages/AddBike";
 
 
 function App() {
@@ -14,9 +16,12 @@ function App() {
    <div>
       <BrowserRouter>
           <Routes>
+              <Route path="/" element= { <StartingPage /> } />
               <Route element={<Protect />}>
-                <Route path="/" element={ <Home /> } />
+                <Route path="/home" element={ <Home /> } />
                 <Route path="/booking/:id" element={ <Booking/> } />
+                <Route path="/mybookings" element={ <MyBookings /> } />
+                <Route path="/addbike" element={ <AddBike /> } />
               </Route>
               <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />

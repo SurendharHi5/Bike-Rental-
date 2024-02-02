@@ -4,6 +4,8 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 import { thunk } from 'redux-thunk';
 import { bikesReducer } from './reducers/bikesReducer';
 import { alertsReducer } from './reducers/alertsReducers';
+import { bookingsReducer } from './reducers/bookingsReducer';
+
 
 const composeEnhancers = composeWithDevTools({
   
@@ -11,7 +13,8 @@ const composeEnhancers = composeWithDevTools({
 
 const rootReducer = combineReducers({
     bikesReducer,
-    alertsReducer
+    alertsReducer,
+    bookingsReducer
 })
 
 const store = createStore(

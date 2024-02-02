@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userRegister } from '../redux/action/userActions'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
+import Spinner from '../Spinner';
+
 
 AOS.init();
 
@@ -20,6 +22,7 @@ function Register() {
   
   return (
     <div className='register'>
+            {loading && (<Spinner />)}
          <Row gutter={16}>
         <Col lg={14} md={14} className='imggif mt-5 p-4'>
           <img data-aos="slide-left" data-aos-duration="800" src='https://giffiles.alphacoders.com/174/17469.gif' />

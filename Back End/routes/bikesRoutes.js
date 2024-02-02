@@ -15,7 +15,7 @@ router.post("/addbike", async (req, res) => {
   try {
     const newbike = new Bike(req.body);
     await newbike.save();
-    res.send("Bike added successfully");
+    res.send("New Bike added successfully");
   } catch (error) {
     return res.status(400).json(error);
   }

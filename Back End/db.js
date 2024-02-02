@@ -1,7 +1,9 @@
 const mongoose = require ("mongoose");
+const dotenv = require("dotenv")
+dotenv.config();
 
 function connectDB (){
-    mongoose.connect("mongodb+srv://surendhar:surendhar@cluster0.5kgphsc.mongodb.net/bike-rental")
+    mongoose.connect(process.env.DB_URI)
 
     const connection = mongoose.connection
 

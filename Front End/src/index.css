@@ -17,12 +17,6 @@ h1{
   font-weight: bold;
 }
 
-p{
-  margin: 5px;
-  text-align: left;
-  padding: 0;
-}
-
 .header{
   padding: 10px;
 }
@@ -32,40 +26,65 @@ p{
 
 }
 
-.bikeimg{
-  height: 220px;
-  width: 100%;
-  border-radius: 5px;
-  transform: translateY(-60px);
-}
-
-.bike{
-  background-color: rgb(225, 240, 218);
-  border-radius: 4px;
-  margin-top: 100px;
-  height: 190px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.bike:hover{
-  height: 290px;
-}
-
-.bike:hover > .bikeContent{
-  opacity: 1;
-  transform: translateY(-50px);
+.Hbike{
+  height: 250px;
+  margin-top: 50px;
+  overflow: hidden;
 }
 
 .bikeContent{
-  transform: translateY(-200px);
+  position: absolute;
+  border-radius: 4px;
+  text-align: left;
+  bottom: 0;
+  height: 40px;
+  width: 320px;
+  background: rgba(12, 12, 12, 0.8);
+  color: white;
+  padding: 10px;
+  transition: .3s;
+}
+
+.cHid{
+  visibility: hidden;
   opacity: 0;
-  transition: 0.3s;
+}
+
+.bikeimg{
+  height: 300px;
+  transition: .3s;
+}
+
+.Hbike:hover{
+  cursor: pointer;
+}
+
+.Hbike:hover .bikeContent{
+  height: 100px;
+  background: rgba(12, 12, 12, 0.9);
+}
+
+.Hbike:hover .cHid{
+  opacity: 1;
+  visibility: visible;
+}
+
+.Hbike:hover .bikeimg{
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.bookLink{
+  text-decoration: none;
 }
 
 .form{
   background-color: #dee0e6;
   
+}
+
+.addForm{
+  background-color: #dee0e6;
+  margin-top: 50px !important;
 }
 
 .fbtn{
@@ -94,4 +113,58 @@ p{
 
 .a{
   text-decoration: none;
+}
+
+.bookImg{
+  width: 90%;
+  border-radius: 5px;
+}
+
+.bookDet{
+  text-align: left;
+  margin-left: 50px;
+}
+
+.bookInfo {
+  background-color: rgb(238, 237, 235);
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.date{
+  background-color: rgb(224, 224, 222);
+}
+
+@media (max-width:767px) {
+  .bookingPage{
+    margin: 50px !important ;
+  }
+  .bookInfo{
+    margin: 50px !important
+  }
+}
+
+.total{
+  margin-top: 20px;
+}
+
+.pickupLoc{
+  margin-top: 10px;
+}
+
+.rideBtn{
+  height: 50px;
+  border-radius: 0px 4px 4px 0px;
+  
+}
+
+.date{
+  font-weight:bold;
+  text-align: center;
+ 
+}
+
+.stImg{
+  height: 550px;
+  background-position: center;
 }

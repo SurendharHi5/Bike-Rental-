@@ -16,7 +16,7 @@ function Register() {
   const {loading} = useSelector(state =>state.alertsReducer)
   function onFinish(values){
     dispatch(userRegister(values))
-    console.log(values)
+    // console.log(values)
   }
 
   
@@ -41,10 +41,6 @@ function Register() {
 
             <Form.Item name="password" label="Password">
               <Input.Password placeholder="Password" required/>
-            </Form.Item>
-
-            <Form.Item name="Confirm password" label="Confirm Password">
-              <Input.Password placeholder="Confirm Password" required/>
             </Form.Item>
 
             <Button type="primary" htmlType="submit" className='fbtn'>Register</Button>

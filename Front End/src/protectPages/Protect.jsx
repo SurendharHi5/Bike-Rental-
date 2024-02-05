@@ -5,8 +5,10 @@ import { Outlet, Navigate } from 'react-router-dom'
 
 const authUser =() =>{
     const users = JSON.parse(localStorage.getItem("user"))
+   
     if(users){
-        return <Navigate to="/" />
+       
+        return <Navigate to="/home" />
     }
     
 }

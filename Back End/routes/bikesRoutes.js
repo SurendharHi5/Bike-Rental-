@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Bike = require("../models/bikeModel");
 
-router.get("/getallbikes", async (req, res) => {
+router.get("/getallbikes", async(req, res) => {
   try {
     const bikes = await Bike.find();
     res.send(bikes);
@@ -11,7 +11,7 @@ router.get("/getallbikes", async (req, res) => {
   }
 });
 
-router.post("/addbike", async (req, res) => {
+router.post("/addbike", async(req, res) => {
   try {
     const newbike = new Bike(req.body);
     await newbike.save();
@@ -26,8 +26,8 @@ router.post("/editbike", async (req, res) => {
     const bike = await Bike.findOne({ _id: req.body._id });
     bike.name = req.body.name;
     bike.image = req.body.image;
-    bike.rentPerHour = req.body.rentPerHour;
     bike.capacity = req.body.capacity;
+    bike.rentPerHour = req.body.rentPerHour;
 
     await bike.save();
 
@@ -39,7 +39,7 @@ router.post("/editbike", async (req, res) => {
 
 router.post("/deletebike", async (req, res) => {
   try {
-    await Bike.findOneAndDelete({ _id: req.body.bikeid });
+    await Bike.findOneAndDelete({ _id: req.body.id });
 
     res.send("Bike deleted successfully");
   } catch (error) {

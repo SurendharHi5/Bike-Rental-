@@ -11,6 +11,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import Spinner from '../Spinner';
 
 
+
 AOS.init();
 const { RangePicker } = DatePicker;
 
@@ -43,6 +44,7 @@ function Booking() {
     const reqObj = {
       token,
       user : JSON.parse(localStorage.getItem("user"))._id,
+      userName : JSON.parse(localStorage.getItem("user")).username,
       bike : bike._id,
       bikeName: bike.name,
       totalDays,
@@ -53,9 +55,9 @@ function Booking() {
         to
       }
     }
-    dispatch(bookingBike(reqObj))
+     dispatch(bookingBike(reqObj))
+    
   }
-
 
 
   function changeDate(e){
@@ -102,15 +104,19 @@ function Booking() {
                 <RangePicker className='date' format="MMM-DD-YYYY HH:mm" showTime={{format: "HH:mm",use12Hours:true}} onChange={changeDate} />
                 <br />
                 <Button type="primary" htmlType="submit" className='fbtn mt-2' onClick={()=>{setTimeSlot(true)}}> Booked Time Slots</Button>
-                { from && to &&(<div className='total'>
+               
+             { from && to &&(<div className='total'>
                 <h6>Total Days : {totalDays}</h6>
                   <h6>Total Hours : {totalHours}</h6>
                   <h4>Total Amount: {totalAmount}</h4>
-                  <StripeCheckout token={onToken} amount={totalAmount * 100} currency='usd' stripeKey="pk_test_51Ock7jSImwwi9NTckXsYX9BfBELyesPmkQriiJb3niJrXynKJhth3gb6d941iH2Zi2ukCdfqS27PIhA9SD8uSj1M00tC5fqeY4">
+                  <StripeCheckout shippingAddress token={onToken} amount={totalAmount * 100} currency='INR' stripeKey="pk_test_51Ock7jSImwwi9NTckXsYX9BfBELyesPmkQriiJb3niJrXynKJhth3gb6d941iH2Zi2ukCdfqS27PIhA9SD8uSj1M00tC5fqeY4">
                   <Button type="primary" htmlType="submit" className='fbtn' >Book Now</Button>
                   </StripeCheckout>
                   
                 </div>)}
+               
+               
+                
                 
             </div>
           </div>
@@ -122,7 +128,7 @@ function Booking() {
               <div className='p-2'>
                 {bike.bookedTimeSlots.map((slot,i)=>{
                   return(
-                    <li key={i}><b>Booked in </b> {slot.from} - {slot.to}</li>
+                    <li key={i}> Booked in <b>{slot.from} - {slot.to} </b> </li>
                   )
                 })}
 

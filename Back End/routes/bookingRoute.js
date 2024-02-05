@@ -5,7 +5,8 @@ const Bike = require("../models/bikeModel")
 const { v4: uuidv4 } = require('uuid');
 const dotenv = require("dotenv")
 dotenv.config();
-const stripe = require("stripe")(process.env.SECRET_KEY)
+const stripe = require("stripe")(process.env.KEY_SECRET)
+
 
 
 router.post("/bookingbike", async(req,res)=>{
@@ -16,9 +17,9 @@ router.post("/bookingbike", async(req,res)=>{
             source : token.id
         })
 
-        const payment = await stripe.charges.create({
+        const payment = await stripe.paymentIntents.create({
             amount : req.body.totalAmount * 100,
-            currency : "usd",
+            currency : "inr",
             customer : customer.id,
             receipt_email : token.email
         },
@@ -28,7 +29,7 @@ router.post("/bookingbike", async(req,res)=>{
         )
 
         if(payment){
-            req.body.transactionId = payment.source.id;
+            req.body.transactionId = payment.customer.id;
             const newBooking = new Booking(req.body);
             await newBooking.save();
             const bike = await Bike.findOne({_id : req.body.bike});

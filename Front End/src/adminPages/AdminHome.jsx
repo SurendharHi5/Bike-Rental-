@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Default from '../components/Default'
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllBikes } from '../redux/action/bikesAction'
-import { Col, Row, Button } from 'antd'
+import { deleteBike, getAllBikes } from '../redux/action/bikesAction'
+import { Button, Col, Row, message, Popconfirm } from 'antd'
 import { Link } from 'react-router-dom';
 import Spinner from '../Spinner';
+import { DeleteFilled, EditFilled } from '@ant-design/icons';
 
 
-function Home() {
+
+function AdminHome() {
   const {bikes} = useSelector(state =>state.bikesReducer)
   const {loading} = useSelector(state =>state.alertsReducer)
   const [totalBikes, setTotalBikes] = useState([]);
@@ -21,10 +23,22 @@ function Home() {
     setTotalBikes(bikes)
   }, [bikes])
 
+  const users = localStorage.getItem("user");
+  const value = JSON.parse(users)
+  
+  
+  console.log(value)
 
  
   return (
     <Default>
+
+   
+            <div className='text-end mt-3 mr-2'>
+                <Button type="primary" htmlType="submit" className='fbtn addBike'>
+                    <Link to="/addbike" className='a' > Add Bike + </Link>
+                </Button>
+            </div>
 
           {loading == true && (<Spinner />)}
       <div className='home'>
@@ -42,30 +56,23 @@ function Home() {
 
                                 <div className='cHid'>
                                 <p> Rent Per Hour <b>{bike.rentPerHour}</b> /-</p>
-                              <Button type="button" className='bookBtn btn btn-secondary justify-content-center ' >
-                                <Link to={`/booking/${bike._id}`} className='bookLink'>
-                                  Book Now 
+                               
+                               <div className='adminIcon' >
+                               <Link to={`/editbike/${bike._id}`} >
+                                    <EditFilled className='editIcon' />
                                 </Link>
-                               </Button>
+
+                                <Popconfirm title="Are you sure to delete this Bike?" onConfirm={()=>{dispatch(deleteBike({id : bike._id}))}}  okText="Yes" cancelText="No" >
+                                    <DeleteFilled className='deleteIcon' />
+                                </Popconfirm>
+                                
+                               </div>
                             </div>
                             </div>
                             
                           </div>
                           
                       </div>
-
-                      {/* <Card className='bike p-2 bs1' >
-                          <Card.Img  src={bike.image} className='bikeimg'  />
-                          <Card.Body className='bikeContent'>
-                            <div>
-                            <Card.Title>{bike.name}</Card.Title>
-                            </div>
-                            <Card.Text>
-                            {bike.rentPerHour} Rent Per Hour /-
-                            </Card.Text>
-                            <Button variant="primary" className='bt1 mt-3'>Book Now</Button>
-                          </Card.Body>
-                        </Card> */}
 
                   </Col>
         })}
@@ -76,4 +83,4 @@ function Home() {
   )
 }
 
-export default Home
+export default AdminHome

@@ -33,7 +33,7 @@ export const userRegister = (reqObj)=>async dispatch=>{
         },500)
     } catch (error) {
         console.log(error)
-        message.error("Something went wrong")
+        message.error("Something went Wrong ")
         dispatch({type: "LOADING", payload: false})
     }
 }

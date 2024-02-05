@@ -8,6 +8,8 @@ import StartingPage from "./pages/StartingPage";
 import Protect from "./protectPages/Protect";
 import MyBookings from "./pages/MyBookings";
 import AddBike from "./adminPages/AddBike";
+import AdminHome from "./adminPages/AdminHome";
+import EditBike from "./adminPages/EditBike";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
                 <Route path="/booking/:id" element={ <Booking/> } />
                 <Route path="/mybookings" element={ <MyBookings /> } />
                 <Route path="/addbike" element={ <AddBike /> } />
+                <Route path="/editbike/:id" element={ <EditBike /> } />
+                <Route path="/adminhome" element={ <AdminHome /> } />
               </Route>
               <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />
